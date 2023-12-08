@@ -10,8 +10,9 @@
             int day = GetIntFromUser("Введите день:");
             int hour = GetIntFromUser("Введите час:");
             int minute = GetIntFromUser("Введите минуту:");
+            int second = GetIntFromUser("Введите секунду:");
 
-            while (!IsValidDateTime(year, month, day, hour, minute))
+            while (!IsValidDateTime(year, month, day, hour, minute, second))
             {
                 Console.WriteLine("Введена некорректная дата или время. Попробуйте снова.");
                 year = GetIntFromUser("Введите год:");
@@ -19,9 +20,10 @@
                 day = GetIntFromUser("Введите день:");
                 hour = GetIntFromUser("Введите час:");
                 minute = GetIntFromUser("Введите минуту:");
+                second = GetIntFromUser("Введите секунду:");
             }
 
-            return new DateTime(year, month, day, hour, minute, 0);
+            return new DateTime(year, month, day, hour, minute, second);
         }
         static int GetIntFromUser(string message)
         {
@@ -39,7 +41,7 @@
             return value;
         }
 
-        public bool IsValidDateTime(int year, int month, int day, int hour, int minute)
+        public bool IsValidDateTime(int year, int month, int day, int hour, int minute, int second)
         {
             if (year < 1 || year > 9999)
                 return false;
@@ -54,6 +56,9 @@
                 return false;
 
             if (minute < 0 || minute > 59)
+                return false;
+
+            if (second < 0 || second > 59)
                 return false;
 
             return true;

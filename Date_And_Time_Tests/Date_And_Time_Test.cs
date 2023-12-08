@@ -12,15 +12,12 @@ namespace Date_And_Time_Tests
         public void IsValidDateTime_ValidDateTime_ReturnsTrue()
         {
             // Arrange
-            int year = 2022;
-            int month = 12;
-            int day = 31;
-            int hour = 23;
-            int minute = 59;
+            int year = 2022, month = 12, day = 31;
+            int hour = 23, minute = 59, second = 12;
             Date_And_Time date_And_Time = new Date_And_Time();
 
             // Act
-            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute);
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
 
             // Assert
             Assert.IsTrue(result);
@@ -30,14 +27,11 @@ namespace Date_And_Time_Tests
         public void IsValidDateTime_InvalidYear_ReturnsFalse()
         {
             // Arrange
-            int year = 0;
-            int month = 12;
-            int day = 31;
-            int hour = 23;
-            int minute = 59;
+            int year = 0, month = 12, day = 31;
+            int hour = 23, minute = 59, second = 31;
             Date_And_Time date_And_Time = new Date_And_Time();
             // Act
-            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute);
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
 
             // Assert
             Assert.IsFalse(result);
@@ -47,15 +41,12 @@ namespace Date_And_Time_Tests
         public void IsValidDateTime_InvalidMonth_ReturnsFalse()
         {
             // Arrange
-            int year = 2022;
-            int month = 13;
-            int day = 31;
-            int hour = 23;
-            int minute = 59;
+            int year = 2022, month = 13, day = 31;
+            int hour = 23, minute = 59, second = 23;
             Date_And_Time date_And_Time = new Date_And_Time();
 
             // Act
-            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute);
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
 
             // Assert
             Assert.IsFalse(result);
