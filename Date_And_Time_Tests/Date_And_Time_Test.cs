@@ -51,5 +51,51 @@ namespace Date_And_Time_Tests
             // Assert
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void IsValidDateTime_InvalidHour_ReturnsFalse()
+        {
+            // Arrange
+            int year = 2022, month = 11, day = 31;
+            int hour = 26, minute = 59, second = 23;
+            Date_And_Time date_And_Time = new Date_And_Time();
+
+            // Act
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void IsValidDateTime_InvalidMinute_ReturnsFalse()
+        {
+            // Arrange
+            int year = 2022, month = 12, day = 31;
+            int hour = 23, minute = 67, second = 23;
+            Date_And_Time date_And_Time = new Date_And_Time();
+
+            // Act
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+
+        [TestMethod]
+        public void IsValidDateTime_InvalidSecond_ReturnsFalse()
+        {
+            // Arrange
+            int year = 2022, month = 9, day = 31;
+            int hour = 23, minute = 59, second = 78;
+            Date_And_Time date_And_Time = new Date_And_Time();
+
+            // Act
+            bool result = date_And_Time.IsValidDateTime(year, month, day, hour, minute, second);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
     }
 }
